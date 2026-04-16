@@ -1,8 +1,7 @@
 pipeline {
     agent any
-
     stages {
-        stage('Docker Islemleri') {
+        stage('Deploy') {
             steps {
                 sh 'docker build -t ymg-odev-app .'
                 sh 'docker stop ymg-konteyner || true'
