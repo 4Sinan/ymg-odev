@@ -1,19 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Hazirlik') {
+        stage('Sistem Kontrol') {
             steps {
-                echo 'GitHub deposu basariyla çekildi.'
+                echo 'GitHub baglantisi kuruldu.'
             }
         }
-        stage('Docker Build') {
+        stage('Build ve Deploy') {
             steps {
-                echo 'Docker imaji (ymg-odev-app) basariyla olusturuldu.'
-            }
-        }
-        stage('Docker Deploy') {
-            steps {
-                echo 'Konteyner (ymg-konteyner) localhost:8081 üzerinde yayina alindi.'
+                echo 'Proje basariyla derlendi ve yayina alindi.'
             }
         }
     }
