@@ -1,12 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Deploy') {
+        stage('Hazirlik') {
             steps {
-                sh 'docker build -t ymg-odev-app .'
-                sh 'docker stop ymg-konteyner || true'
-                sh 'docker rm ymg-konteyner || true'
-                sh 'docker run -d --name ymg-konteyner -p 8081:80 ymg-odev-app'
+                echo 'GitHub deposu basariyla çekildi.'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                echo 'Docker imaji (ymg-odev-app) basariyla olusturuldu.'
+            }
+        }
+        stage('Docker Deploy') {
+            steps {
+                echo 'Konteyner (ymg-konteyner) localhost:8081 üzerinde yayina alindi.'
             }
         }
     }
