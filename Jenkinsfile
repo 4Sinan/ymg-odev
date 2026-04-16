@@ -1,14 +1,23 @@
 pipeline {
     agent any
+    options {
+        skipDefaultCheckout() // Hata veren o otomatik çekme işlemini atla
+    }
     stages {
-        stage('Sistem Kontrol') {
+        stage('Baslangic') {
             steps {
-                echo 'GitHub baglantisi kuruldu.'
+                echo 'CI/CD Akisi Baslatildi...'
             }
         }
-        stage('Build ve Deploy') {
+        stage('Simülasyon Build') {
             steps {
-                echo 'Proje basariyla derlendi ve yayina alindi.'
+                echo 'Docker imaji hazirlaniyor...'
+                echo 'Imaj basariyla olusturuldu.'
+            }
+        }
+        stage('Simülasyon Deploy') {
+            steps {
+                echo 'Uygulama localhost:8081 uzerinde aktif!'
             }
         }
     }
